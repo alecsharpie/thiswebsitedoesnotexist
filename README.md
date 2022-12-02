@@ -1,6 +1,6 @@
 # AI Web Developer
 
-The [CodeGen paper](https://arxiv.org/abs/2203.13474) trained & released code generation models of various sizes (up to 16.1B parameters), focusing primarily on python code.
+The [CodeGen paper](https://arxiv.org/abs/2203.13474) & [Github Repo](https://github.com/salesforce/codegen) trained and released code generation models of various sizes (up to 16.1B parameters), focusing primarily on python code.
 
 I found that the fastest & smallest multi-language model would get confused between programming languages, so wanted to fine-tune it to focus on a specific language.
 
