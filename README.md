@@ -1,74 +1,19 @@
-# Data analysis
-- Document here the project: thiswebsitedoesnotexist
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# AI Web Developer
 
-Please document the project the better you can.
+The [https://arxiv.org/abs/2203.13474](CodeGen paper) trained & released code generation models of various sizes (up to 16.1B parameters), focusing primarily on python code.
 
-# Startup the project
+I found that the fastest & smallest multi-language model would get confused between programming languages, so wanted to fine-tune it to focus on a specific language.
 
-The initial setup.
+I took the [https://huggingface.co/Salesforce/codegen-350M-multi](smallest model (350M parameters)) and fine-tuned it twice:
+ - on HTML from [https://huggingface.co/datasets/bigcode/the-stack](The Stack)
+ - on CSS from [https://huggingface.co/datasets/bigcode/the-stack](The Stack)
 
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
+This model is an auto regressive transformer that predicts the next token.
 
-Unittest test:
-```bash
-make clean install test
-```
+The first model generates the HTML, which is then feed into the CSS model to generate the styling.
 
-Check for thiswebsitedoesnotexist in gitlab.com/{group}.
-If your project is not set please add it:
+Try out generating a website here:
+https://colab.research.google.com/drive/1TqRh-kGw_kJr6LTWNZjyjvF2GzXy6E9w?usp=sharing
 
-- Create a new project on `gitlab.com/{group}/thiswebsitedoesnotexist`
-- Then populate it:
 
-```bash
-##   e.g. if group is "{group}" and project_name is "thiswebsitedoesnotexist"
-git remote add origin git@github.com:{group}/thiswebsitedoesnotexist.git
-git push -u origin master
-git push -u origin --tags
-```
-
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-thiswebsitedoesnotexist-run
-```
-
-# Install
-
-Go to `https://github.com/{group}/thiswebsitedoesnotexist` to see the project, manage issues,
-setup you ssh public key, ...
-
-Create a python3 virtualenv and activate it:
-
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
-```
-
-Clone the project and install it:
-
-```bash
-git clone git@github.com:{group}/thiswebsitedoesnotexist.git
-cd thiswebsitedoesnotexist
-pip install -r requirements.txt
-make clean install test                # install and test
-```
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-thiswebsitedoesnotexist-run
-```
+See the fine-tuning code here:
